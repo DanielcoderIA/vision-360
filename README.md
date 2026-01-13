@@ -2,7 +2,7 @@
 
 **Live Demo:** https://vision-360-2oir.vercel.app/login
 
-`![Dashboard Preview](./public/screenshots/dashboard.png` 
+![Dashboard Preview](public/screenshots/dashboard.png)
 
 **Visión 360** es una plataforma de gestión financiera de alto rendimiento que transforma el registro de transacciones en decisiones estratégicas. Utilizando un motor de **Inteligencia Artificial (Google Gemini)**, la aplicación actúa como un auditor financiero personal, identificando patrones de gasto y optimizando el flujo de caja en tiempo real.
 
@@ -74,46 +74,51 @@ npm run dev
 # Construir para producción
 npm run build
 
-🏗️ Estructura del Proyecto
+---
 
+## 🏗️ Estructura del Proyecto
+
+El proyecto está organizado bajo la arquitectura de **Next.js 14 (App Router)**, distribuyendo las responsabilidades de la siguiente manera:
 vision-360/
-├── app/                        # Directorio principal de rutas (App Router)
-│   ├── auth/                   # Módulo de autenticación
-│   │   └── actions.ts          # Lógica de servidor para Login/Registro
-│   ├── configuracion/          # Ajustes de perfil y preferencias
-│   │   └── page.tsx            # Interfaz de configuración de usuario
-│   ├── login/                  # Página de acceso al sistema
+├── app/                        # Rutas y Lógica de Servidor
+│   ├── auth/                   # Autenticación de usuarios
+│   │   └── actions.ts          # Server Actions para Auth
+│   ├── configuracion/          # Ajustes de cuenta
+│   │   └── page.tsx            # Vista de perfil
+│   ├── login/                  # Acceso al sistema
 │   │   └── page.tsx            # Formulario de entrada
 │   ├── movimientos/            # Gestión de transacciones (CRUD)
-│   │   └── page.tsx            # Historial detallado de movimientos
-│   ├── reportes/               # Análisis financiero y métricas
-│   │   ├── actions.ts          # Lógica específica de IA y estadísticas
-│   │   └── page.tsx            # Visualizaciones y Auditoría Inteligente
-│   ├── favicon.ico             # Icono de la aplicación
-│   ├── globals.css             # Estilos de Tailwind e impresión de PDF
-│   ├── layout.tsx              # Estructura base y envolvente del App
+│   │   └── page.tsx            # Historial de movimientos
+│   ├── reportes/               # Módulo de analítica avanzada
+│   │   ├── actions.ts          # Lógica de IA y estadísticas de reportes
+│   │   └── page.tsx            # Gráficas y Auditoría Inteligente
+│   ├── globals.css             # Estilos globales y reglas de impresión PDF
+│   ├── layout.tsx              # Armazón principal y Sidebar
 │   └── page.tsx                # Dashboard principal (Vista resumen)
-├── components/                 # Componentes de UI reactivos
-│   ├── CategoryChart.tsx       # Distribución de gastos por categoría
-│   ├── QuickForm.tsx           # Formulario de registro rápido
+├── components/                 # Componentes de Interfaz Reutilizables
+│   ├── CategoryChart.tsx       # Distribución por categorías
+│   ├── QuickForm.tsx           # Registro rápido de gastos
 │   ├── Sidebar.tsx             # Navegación lateral principal
-│   └── TrendChart.tsx          # Gráfico de líneas de comportamiento temporal
-├── lib/                        # Conexiones externas
-│   └── supabase.ts             # Cliente de Supabase (Base de Datos)
-├── public/                     # Archivos estáticos y multimedia
-│   ├── dashboard.png           # Captura del sistema para el README
-│   └── file.svg                # Activos vectoriales
-├── README.md                   # Documentación del proyecto
+│   └── TrendChart.tsx          # Comportamiento temporal
+├── lib/                        # Utilidades y Clientes
+│   └── supabase.ts             # Cliente de conexión a Base de Datos
+├── public/                     # Archivos estáticos
+│   ├── dashboard.png           # Imagen para documentación
+│   └── file.svg                # Activos de marca
 ├── proxy.ts                    # Seguridad y protección de rutas
-└── package.json                # Scripts y dependencias del sistema
+├── package.json                # Dependencias y scripts
+└── README.md                   # Documentación técnica
 
+---
 
-📝 Próximos Pasos (Roadmap)
+## 📝 Próximos Pasos (Roadmap)
+
 [ ] Implementación de OCR para escanear facturas físicas.
 
 [ ] Alertas automáticas vía WhatsApp ante excedentes de presupuesto.
 
 [ ] Soporte para múltiples divisas con tasa de cambio en tiempo real.
 
-Generado con ❤️ para una gestión financiera profesional.
+---
 
+## Generado con ❤️ para una gestión financiera profesional.
