@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💎 Visión 360: Ecosistema de Auditoría Financiera con IA
 
-## Getting Started
+**Live Demo:** https://vision-360-2oir.vercel.app/login
 
-First, run the development server:
+`![Dashboard Preview](./public/screenshots/Capturadepantalla(683).png)` 
 
-```bash
+**Visión 360** es una plataforma de gestión financiera de alto rendimiento que transforma el registro de transacciones en decisiones estratégicas. Utilizando un motor de **Inteligencia Artificial (Google Gemini)**, la aplicación actúa como un auditor financiero personal, identificando patrones de gasto y optimizando el flujo de caja en tiempo real.
+
+---
+
+## 🛠️ Stack Tecnológico
+
+| Capa | Tecnología |
+| :--- | :--- |
+| **Framework** | Next.js 14+ (App Router & Server Actions) |
+| **Base de Datos** | Supabase (PostgreSQL) |
+| **Autenticación** | Supabase Auth con SSR Middleware |
+| **IA Generativa** | Google Generative AI (Modelo: `gemini-flash-latest`) |
+| **Estilos** | Tailwind CSS & Lucide Icons |
+| **Procesamiento** | Regex para Normalización de Moneda (COP/Latam) |
+
+---
+
+## 🌟 Características Destacadas
+
+### 1. Normalización Inteligente de Datos (Latam-Ready)
+El sistema integra una lógica de limpieza de datos robusta en el servidor (`addTransaction`) que procesa formatos de moneda latinoamericanos:
+* **Entrada**: `"$ 1.500.000,50"`
+* **Procesamiento**: Eliminación de símbolos, normalización de puntos de millar y conversión de comas decimales mediante expresiones regulares.
+* **Salida**: `1500000.50` (formato numérico puro para BD).
+
+### 2. Auditoría Financiera IA (NLP)
+Mediante el SDK de Google Generative AI, la aplicación analiza los últimos 20 movimientos del usuario para generar un dictamen ejecutivo estructurado:
+* 📌 **Diagnóstico**: Análisis de la salud del flujo de caja.
+* 🚨 **Alerta Crítica**: Identificación de riesgos o fugas de capital.
+* 💡 **Estrategia**: Acciones concretas de ahorro con cálculos estimados.
+
+### 3. Reportes Dinámicos y Ventana Móvil
+La lógica de visualización en `getMonthlyStats` garantiza que la información sea siempre relevante:
+* **Ordenamiento Cronológico**: Implementación de un `sortKey` con `padStart(2, '0')` para asegurar que el orden de meses y años (ej. 2025 vs 2026) sea matemáticamente exacto.
+* **Ventana Móvil**: Visualización automática de los últimos 6 meses para un análisis de tendencia actualizado.
+
+---
+
+## 📈 Lógica de Negocio y Métricas
+
+La aplicación utiliza fórmulas para determinar la salud financiera del usuario en tiempo real:
+
+$$Balance = \sum Ingresos - \sum Gastos$$
+
+$$Tasa\ de\ Ahorro = \left( \frac{Ingresos - Gastos}{Ingresos} \right) \times 100$$
+
+Tras cada operación, el sistema utiliza `revalidatePath("/", "layout")` para asegurar que el Dashboard, los Reportes y las Gráficas estén sincronizados de forma atómica.
+
+---
+
+## 🚀 Configuración del Proyecto
+
+### 1. Variables de Entorno (`.env.local`)
+Crea un archivo en la raíz con las siguientes claves:
+```env
+NEXT_PUBLIC_SUPABASE_URL=tu_url_de_supabase
+NEXT_PUBLIC_SUPABASE_ANON_KEY=tu_clave_anon_key
+GOOGLE_API_KEY=tu_api_key_de_gemini
+
+2. Instalación:
+
+# Instalar dependencias
+npm install
+
+# Iniciar entorno de desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Construir para producción
+npm run build
+🏗️ Estructura del Proyecto
+/app/actions.ts: Lógica de servidor, validaciones de seguridad y conexión con IA.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+/app/reportes/page.tsx: Dashboard visual con gráficas de rendimiento y modal de auditoría.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+/app/movimientos/page.tsx: Gestión de CRUD de transacciones.
 
-## Learn More
+📝 Próximos Pasos (Roadmap)
+[ ] Implementación de OCR para escanear facturas físicas.
 
-To learn more about Next.js, take a look at the following resources:
+[ ] Alertas automáticas vía WhatsApp ante excedentes de presupuesto.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[ ] Soporte para múltiples divisas con tasa de cambio en tiempo real.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Generado con ❤️ para una gestión financiera profesional.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
