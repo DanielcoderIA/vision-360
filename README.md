@@ -58,12 +58,11 @@ Tras cada operación, el sistema utiliza `revalidatePath("/", "layout")` para as
 
 ### 1. Variables de Entorno (`.env.local`)
 Crea un archivo en la raíz con las siguientes claves:
-```env
 NEXT_PUBLIC_SUPABASE_URL=tu_url_de_supabase
 NEXT_PUBLIC_SUPABASE_ANON_KEY=tu_clave_anon_key
 GOOGLE_API_KEY=tu_api_key_de_gemini
 
-2. Instalación:
+## 2. Instalación:
 
 # Instalar dependencias
 npm install
@@ -74,11 +73,13 @@ npm run dev
 # Construir para producción
 npm run build
 
+
 ---
 
 ## 🏗️ Estructura del Proyecto
 
 El proyecto está organizado bajo la arquitectura de **Next.js 14 (App Router)**, distribuyendo las responsabilidades de la siguiente manera:
+
 vision-360/
 ├── app/                        # Rutas y Lógica de Servidor
 │   ├── auth/                   # Autenticación de usuarios
@@ -118,7 +119,5 @@ vision-360/
 [ ] Alertas automáticas vía WhatsApp ante excedentes de presupuesto.
 
 [ ] Soporte para múltiples divisas con tasa de cambio en tiempo real.
-
----
 
 ## Generado con ❤️ para una gestión financiera profesional.
