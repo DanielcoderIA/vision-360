@@ -58,12 +58,13 @@ Tras cada operación, el sistema utiliza `revalidatePath("/", "layout")` para as
 
 ### 1. Variables de Entorno (`.env.local`)
 Crea un archivo en la raíz con las siguientes claves:
+```env
 NEXT_PUBLIC_SUPABASE_URL=tu_url_de_supabase
 NEXT_PUBLIC_SUPABASE_ANON_KEY=tu_clave_anon_key
 GOOGLE_API_KEY=tu_api_key_de_gemini
-
+```
 ## 2. Instalación:
-
+```bash
 # Instalar dependencias
 npm install
 
@@ -73,13 +74,15 @@ npm run dev
 # Construir para producción
 npm run build
 
-
+```
 ---
+
 
 ## 🏗️ Estructura del Proyecto
 
 El proyecto está organizado bajo la arquitectura de **Next.js 14 (App Router)**, distribuyendo las responsabilidades de la siguiente manera:
 
+```text
 vision-360/
 ├── app/                        # Rutas y Lógica de Servidor
 │   ├── auth/                   # Autenticación de usuarios
@@ -91,18 +94,18 @@ vision-360/
 │   ├── movimientos/            # Gestión de transacciones (CRUD)
 │   │   └── page.tsx            # Historial de movimientos
 │   ├── reportes/               # Módulo de analítica avanzada
-│   │   ├── actions.ts          # Lógica de IA y estadísticas de reportes
+│   │   ├── actions.ts          # Lógica de IA y estadísticas
 │   │   └── page.tsx            # Gráficas y Auditoría Inteligente
-│   ├── globals.css             # Estilos globales y reglas de impresión PDF
+│   ├── globals.css             # Estilos y reglas de impresión
 │   ├── layout.tsx              # Armazón principal y Sidebar
-│   └── page.tsx                # Dashboard principal (Vista resumen)
-├── components/                 # Componentes de Interfaz Reutilizables
+│   └── page.tsx                # Dashboard principal
+├── components/                 # Componentes de Interfaz
 │   ├── CategoryChart.tsx       # Distribución por categorías
 │   ├── QuickForm.tsx           # Registro rápido de gastos
 │   ├── Sidebar.tsx             # Navegación lateral principal
 │   └── TrendChart.tsx          # Comportamiento temporal
 ├── lib/                        # Utilidades y Clientes
-│   └── supabase.ts             # Cliente de conexión a Base de Datos
+│   └── supabase.ts             # Conexión a Base de Datos
 ├── public/                     # Archivos estáticos
 │   ├── dashboard.png           # Imagen para documentación
 │   └── file.svg                # Activos de marca
@@ -110,8 +113,8 @@ vision-360/
 ├── package.json                # Dependencias y scripts
 └── README.md                   # Documentación técnica
 
+``` 
 ---
-
 ## 📝 Próximos Pasos (Roadmap)
 
 [ ] Implementación de OCR para escanear facturas físicas.
@@ -119,5 +122,7 @@ vision-360/
 [ ] Alertas automáticas vía WhatsApp ante excedentes de presupuesto.
 
 [ ] Soporte para múltiples divisas con tasa de cambio en tiempo real.
+
+--- 
 
 ## Generado con ❤️ para una gestión financiera profesional.
