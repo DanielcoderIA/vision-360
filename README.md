@@ -2,7 +2,7 @@
 
 **Live Demo:** https://vision-360-2oir.vercel.app/login
 
-`![Dashboard Preview](./public/screenshots/Capturadepantalla(683).png)` 
+`![Dashboard Preview](./public/screenshots/dashboard.png` 
 
 **Visión 360** es una plataforma de gestión financiera de alto rendimiento que transforma el registro de transacciones en decisiones estratégicas. Utilizando un motor de **Inteligencia Artificial (Google Gemini)**, la aplicación actúa como un auditor financiero personal, identificando patrones de gasto y optimizando el flujo de caja en tiempo real.
 
@@ -73,12 +73,40 @@ npm run dev
 
 # Construir para producción
 npm run build
+
 🏗️ Estructura del Proyecto
-/app/actions.ts: Lógica de servidor, validaciones de seguridad y conexión con IA.
 
-/app/reportes/page.tsx: Dashboard visual con gráficas de rendimiento y modal de auditoría.
+vision-360/
+├── app/                        # Directorio principal de rutas (App Router)
+│   ├── auth/                   # Módulo de autenticación
+│   │   └── actions.ts          # Lógica de servidor para Login/Registro
+│   ├── configuracion/          # Ajustes de perfil y preferencias
+│   │   └── page.tsx            # Interfaz de configuración de usuario
+│   ├── login/                  # Página de acceso al sistema
+│   │   └── page.tsx            # Formulario de entrada
+│   ├── movimientos/            # Gestión de transacciones (CRUD)
+│   │   └── page.tsx            # Historial detallado de movimientos
+│   ├── reportes/               # Análisis financiero y métricas
+│   │   ├── actions.ts          # Lógica específica de IA y estadísticas
+│   │   └── page.tsx            # Visualizaciones y Auditoría Inteligente
+│   ├── favicon.ico             # Icono de la aplicación
+│   ├── globals.css             # Estilos de Tailwind e impresión de PDF
+│   ├── layout.tsx              # Estructura base y envolvente del App
+│   └── page.tsx                # Dashboard principal (Vista resumen)
+├── components/                 # Componentes de UI reactivos
+│   ├── CategoryChart.tsx       # Distribución de gastos por categoría
+│   ├── QuickForm.tsx           # Formulario de registro rápido
+│   ├── Sidebar.tsx             # Navegación lateral principal
+│   └── TrendChart.tsx          # Gráfico de líneas de comportamiento temporal
+├── lib/                        # Conexiones externas
+│   └── supabase.ts             # Cliente de Supabase (Base de Datos)
+├── public/                     # Archivos estáticos y multimedia
+│   ├── dashboard.png           # Captura del sistema para el README
+│   └── file.svg                # Activos vectoriales
+├── README.md                   # Documentación del proyecto
+├── proxy.ts                    # Seguridad y protección de rutas
+└── package.json                # Scripts y dependencias del sistema
 
-/app/movimientos/page.tsx: Gestión de CRUD de transacciones.
 
 📝 Próximos Pasos (Roadmap)
 [ ] Implementación de OCR para escanear facturas físicas.
